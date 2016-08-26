@@ -10,18 +10,16 @@ using namespace std;
 
 int main(){
 
-//    for (int i = 1; i <= 3; ++i) {
-//        cout << "Run#" << i << ": ";
-//
-//        for (int j = 1; j <= 10 ; ++j) {
-//            cout << j << " ";
-//        }
-//
-//        cout << endl;
-//    }
+    //Outer loop that handles the "Run#.."
+    for (int i = 1; i <= 3; ++i) {
+        cout << "Run#" << i << ": ";
 
-    if (5/7){
-        cout << true;
+        //Inner loop that handles the 1 2 3 4...
+        for (int j = 1; j <= 10 ; ++j) {
+            cout << j << " ";
+        }
+
+        cout << endl;
     }
 
     return 0;

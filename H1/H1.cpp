@@ -16,7 +16,7 @@ int main(void)
 
     sum = x + y;
 
-    cout << "The sum of the two numbers " << x << " " << y <<" is " << sum ;
+    cout << "The sum of the two numbers " << x << " and " << y <<" is " << sum ;
     cout << endl;
 
     return 0;

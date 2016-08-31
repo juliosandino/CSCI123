@@ -10,34 +10,39 @@
 using namespace std;
 
 void menu();
-void optionHandling();
+void englishToMetric(double value);
+void metricToEnglish(double value);
 
-int choice;
-
+string choice;
 int main() {
 
     menu();
     cin >> choice;
 
-    if (choice == 1){
-        //do something
-        cout << 1;
-    } else if(choice == 2){
-        //do something
-        cout << 2;
-    } else if(choice == 3){
+    if (choice == "1"){
+        int value;
+        cout << "Enter a number of meters as a double: ";
+        cin >> value;
+        metricToEnglish(value);
+    } else if(choice == "2"){
+        double value;
+        cout << "Enter number of feet of as a double: ";
+        cin >> value;
+        englishToMetric(value);
+    } else if(choice == "3"){
         //do something
         cout << "Goodbye!";
     } else {
-        cout << "Invalid choice! please choose a number between 1 and 3" << endl;
+        cout << "Invalid choice! please choose a number between 1 and 3" << endl << endl;
+        choice.clear();
+        main();
     }
-
     return 0;
 }
 
 void menu(){
-    string option1 = "1. Convert length from English to Metric";
-    string option2 = "2. Convert length from Metric to English";
+    string option1 = "1. Convert length from Metric to English";
+    string option2 = "2. Convert length from English to Metric";
     string option3 = "3. Quit the Program";
 
     string option[] = {option1, option2, option3};
@@ -46,5 +51,19 @@ void menu(){
     for (int i = 0; i < 3; ++i) {
         cout << option[i] << endl;
     }
-    cout << "Please enter your choice: ";
+    cout << "Please enter your choice:  ";
+}
+
+void metricToEnglish(double value){
+    double calculation;
+
+    calculation = value * (1.00 / 0.3084);
+    cout << value << " meters corresponds to " << calculation << " feet" << endl;
+}
+
+void englishToMetric(double value){
+    double calculation;
+
+    calculation = value * 0.3084;
+    cout << value << " feet corresponds to " << calculation << " meters" << endl;
 }

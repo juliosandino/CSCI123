@@ -10,6 +10,24 @@
 #include <iostream>
 using namespace std;
 
+static void expression_calculator(int x);
+static void loop();
+
+int main() {
+
+    loop();
+
+    int value;
+
+    //getting the user input to use for expression_calculator
+    cout << "Please enter a positive integer: ";
+    cin >> value;
+
+    expression_calculator(value);
+
+    return 0;
+}
+
 //this function prints out my name 10 times with a for loop
 static void loop(){
     for (int i = 1; i <= 10; ++i) {
@@ -27,18 +45,4 @@ static void expression_calculator(int x){
     cout << "((" << x << "/3) + (" << x <<"%3)) * 3 = " << answer;
 }
 
-int main() {
-
-    loop();
-
-    int value;
-
-    //getting the user input to use for expression_calculator
-    cout << "Please enter a positive integer: ";
-    cin >> value;
-
-    expression_calculator(value);
-
-    return 0;
-}
 

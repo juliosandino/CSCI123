@@ -42,7 +42,7 @@ static void expression_calculator(int x){
     answer = ((x / 3) + (x % 3)) * 3;
 
     //the answer that will be printed to the console.
-    cout << "\"((" << x << "/3) + (" << x <<"%3)) * 3 =\"" << answer;
+    cout << "\"((" << x << "/3) + (" << x <<"%3)) * 3 = " << answer << "\"";
 }
 
 

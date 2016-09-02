@@ -7,11 +7,37 @@
 //It employs for loops, static methods, and user input
 
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 
-void menu();
-void englishToMetric(double value);
-void metricToEnglish(double value);
+//constants that we will need for unit conversion
+const double metric_to_english_factor = (1 / 0.3048);
+const double english_to_metric_factor = 0.3048;
+const double feet_to_inches =  12;
+const double inches_to_feet = 1 / feet_to_inches;
+
+//error messages that will be displayed if the user input is invalid
+const string metricError = "Invalid value! Please enter a value greater than or equal to 0";
+const string englishError = "Invalid values! Please input values greater than or equal to 0";
+const string choiceError = "Invalid choice! please choose a number between 1 and 3";
+
+//options that the user will have and an array so we can loop them
+const string option1 = "Convert length from Metric to English";
+const string option2 = "Convert length from English to Metric";
+const string option3 = "Quit the Program";
+const string option[] = {option1, option2, option3};
+
+//declaring the methods that we will use
+//this method prints out the menu to the user
+static void menu();
+
+static void englishToMetric(double feet, double inches);
+static void metricToEnglish(double value);
+
+//this method checks if the values the user inputed are valid for calcuations
+//if the double is not greater than or equal to 0 it will return an error
+static bool checkIfValid(double value);
 
 string choice;
 int main() {
@@ -20,50 +46,78 @@ int main() {
     cin >> choice;
 
     if (choice == "1"){
-        int value;
+        double meters;
         cout << "Enter a number of meters as a double: ";
-        cin >> value;
-        metricToEnglish(value);
+        cin >> meters;
+
+        if (checkIfValid(meters)){
+            metricToEnglish(meters);
+        } else {
+            cout << metricError << endl << endl;
+            choice.clear();
+            main();
+        }
     } else if(choice == "2"){
-        double value;
+        //variables we'll need in order to calculate
+        double feet;
+        double inches;
+
         cout << "Enter number of feet of as a double: ";
-        cin >> value;
-        englishToMetric(value);
+        cin >> feet;
+        cout << "Enter number of inches as a double: ";
+        cin >> inches;
+
+        if (checkIfValid(feet) && checkIfValid(inches)){
+            englishToMetric(feet, inches);
+        } else {
+            cout << englishError << endl << endl;
+            choice.clear();
+            main();
+        }
+
     } else if(choice == "3"){
         //do something
         cout << "Goodbye!";
     } else {
-        cout << "Invalid choice! please choose a number between 1 and 3" << endl << endl;
+        cout << choiceError << endl << endl;
         choice.clear();
         main();
     }
     return 0;
 }
 
-void menu(){
-    string option1 = "1. Convert length from Metric to English";
-    string option2 = "2. Convert length from English to Metric";
-    string option3 = "3. Quit the Program";
-
-    string option[] = {option1, option2, option3};
-
-    cout << "Menu" << endl;
+//the \t is for formatting purposes. it puts a tab inside the string
+static void menu(){
+    cout << "\tMenu" << endl;
     for (int i = 0; i < 3; ++i) {
-        cout << option[i] << endl;
+        cout << i+1 << ".\t" << option[i] << endl;
     }
     cout << "Please enter your choice:  ";
 }
 
-void metricToEnglish(double value){
+static void metricToEnglish(double value){
+    //declaring the output variables
     double calculation;
+    double feet;
+    double inches;
 
-    calculation = value * (1.00 / 0.3084);
-    cout << value << " meters corresponds to " << calculation << " feet" << endl;
+    //giving value to the variables that will be outputted
+    calculation = value * metric_to_english_factor;
+    feet = floor (calculation);
+    inches = round ((calculation - feet) * 100 * feet_to_inches) / 100;
+
+    //outputting the result to the user
+    cout << value << " meters corresponds to " << feet << " feet, " << inches << " inches" << endl;
 }
 
-void englishToMetric(double value){
-    double calculation;
+static void englishToMetric(double feet, double inches){
 
-    calculation = value * 0.3084;
-    cout << value << " feet corresponds to " << calculation << " meters" << endl;
+    double meters = (feet + (inches * inches_to_feet)) * english_to_metric_factor;
+
+    //prints out the value to the users
+    cout << feet << " feet, " << inches << " inches corresponds to " << meters << " meters" << endl;
+}
+
+static bool checkIfValid(double value){
+    return value >= 0;
 }

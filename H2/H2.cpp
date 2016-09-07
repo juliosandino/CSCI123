@@ -11,25 +11,28 @@
 using namespace std;
 
 static void expression_calculator(int x);
-static void loop();
+static void nameLoop();
 
 int main() {
 
-    loop();
+    nameLoop();
 
     int value;
 
     //getting the user input to use for expression_calculator
     cout << "Please enter a positive integer: ";
     cin >> value;
-
-    expression_calculator(value);
-
+    
+    if (value > 0){
+        expression_calculator(value);
+    } else {
+        cout << "Invalid number used!";
+    }
     return 0;
 }
 
 //this function prints out my name 10 times with a for loop
-static void loop(){
+static void nameLoop(){
     for (int i = 1; i <= 10; ++i) {
         cout << i << " Julio Sandino" << endl;
     }

@@ -14,7 +14,7 @@ int main(){
     for (int i = 1; i <= 3; ++i) {
         cout << "Run#" << i << ": ";
 
-        //Inner loop that handles the 1 2 3 4...
+        //Inner loop that handles the 2 4 6 8...
         for (int j = 2; j <= 10 ; j += 2) {
             cout << j << " ";
         }

@@ -1,10 +1,11 @@
 //P2.cpp
 //Programmer: Julio Sandino                                             CSCI 123, Fall 2016
-//Project 1                                                             Instructor: Mai, Timothy
+//Project 2                                                             Instructor: Mai, Timothy
 //Due Date: 9/29/16                                                     Date Submitted: 9/29/16
 
 //Program Description: This program is able to convert the units from metric to english and vice versa
-//It employs for loops, static methods, and user input
+//It employs for loops, static methods, and user input, it will also use
+//functions and references to be able to achieve its purpose.
 
 #include <iostream>
 #include <cmath>

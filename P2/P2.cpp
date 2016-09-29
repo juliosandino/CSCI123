@@ -29,6 +29,8 @@ const string option2 = "Convert length from English to Metric";
 const string option3 = "Quit the Program";
 const string option[] = {option1, option2, option3};
 
+bool keepRunning = true;
+
 //declaring the methods that we will use
 //this method prints out the menu to the user
 void menu(int& choice);
@@ -50,16 +52,18 @@ bool checkIfValid(double value);
 
 
 int main() {
-    int choice;
+    while (keepRunning) {
+        int choice;
 
-    cout << "\tMenu" << endl;
-    for (int i = 0; i < 3; ++i) {
-        cout << i+1 << ".\t" << option[i] << endl;
+        cout << "\tMenu" << endl;
+        for (int i = 0; i < 3; ++i) {
+            cout << i + 1 << ".\t" << option[i] << endl;
+        }
+        cout << "Please enter your choice:  ";
+        cin >> choice;
+
+        menu(choice);
     }
-    cout << "Please enter your choice:  ";
-    cin >> choice;
-
-    menu(choice);
 }
 
 void menu(int& choice){
@@ -72,13 +76,13 @@ void menu(int& choice){
             break;
         case 3:
             cout << "Goodbye!" << "\n\n";
+            keepRunning = false;
             break;
         default:
             cout << choiceError << "\n\n";
 
     }
     cout << endl;
-    main();
 }
 bool checkIfValid(double value){
     return value >= 0;
@@ -95,14 +99,17 @@ void MetricToEnglish(){
 }
 
 void inputMetric(double& m){
-    cout << "Enter a number of meters as a double: ";
-    cin >> m;
+    bool valid = false;
 
-    if (checkIfValid(m))
-        return;
-    else{
-        cout << metricError << "\n\n";
-        main();
+    while (!valid) {
+        cout << "Enter a number of meters as a double: ";
+        cin >> m;
+
+        if (checkIfValid(m))
+            valid = true;
+        else {
+            cout << metricError << "\n";
+        }
     }
 }
 
@@ -127,16 +134,19 @@ void EnglishToMetric(){
 }
 
 void inputEnglish(double& f, double& i){
-    cout << "Enter number of feet of as a double: ";
-    cin >> f;
-    cout << "Enter number of inches as a double: ";
-    cin >> i;
+    bool valid = false;
 
-    if (checkIfValid(f) && checkIfValid(i))
-        return;
-    else{
-        cout << englishError << "\n\n";
-        main();
+    while (!valid) {
+        cout << "Enter number of feet of as a double: ";
+        cin >> f;
+        cout << "Enter number of inches as a double: ";
+        cin >> i;
+
+        if (checkIfValid(f) && checkIfValid(i))
+            valid = true;
+        else {
+            cout << englishError << "\n";
+        }
     }
 }
 

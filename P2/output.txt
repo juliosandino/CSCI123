@@ -1,0 +1,29 @@
+    Menu
+1.  Convert length from Metric to English
+2.  Convert length from English to Metric
+3.  Quit the Program
+Please enter your choice:  1
+Enter a number of meters as a double: 75
+75 meters corresponds to 246 feet, 0.76 inches
+
+
+    Menu
+1.  Convert length from Metric to English
+2.  Convert length from English to Metric
+3.  Quit the Program
+Please enter your choice:  2
+Enter number of feet of as a double: 246
+Enter number of inches as a double: 0.76
+246 feet, 0.76 inches corresponds to 75.0001 meters
+
+
+    Menu
+1.  Convert length from Metric to English
+2.  Convert length from English to Metric
+3.  Quit the Program
+Please enter your choice:  3
+Goodbye!
+
+
+
+Process finished with exit code 0

@@ -1,0 +1,8 @@
+/Users/julio395/Library/Caches/CLion2016.2/cmake/generated/H8-b201988a/b201988a/Debug/H8
+What is your first name? Julio
+What is your middle name? Eduardo
+What is your last name? Sandino
+�n
+Juli Eduardo Sandino
+Total number of characters: 19
+Process finished with exit code 0

@@ -18,6 +18,8 @@ struct SCourse
     int NumberOfStudents;
 };
 
+const string fileName = "Courses.dat";
+
 int menu ();
 void listAllCourses ();
 void listCoursesOfSpecificDepartment ();
@@ -115,7 +117,7 @@ void readCourseInfo() {
 
     int counter = 0;
 
-	File.open("/Users/julio395/ClionProjects/csci123/P3/Courses.dat");
+	File.open(fileName);
 
     if (File.is_open()) {
         while (getline(File, line)) {
@@ -132,7 +134,7 @@ void readCourseInfo() {
 
 void writeCourseInfo() {
 	fstream File;
-	File.open("/Users/julio395/ClionProjects/csci123/P3/Courses.dat");
+	File.open(fileName);
 
 	for(int i = 0; i < COURSE_LIST_SIZE; i++) {
 		File	<< courses[i].CRN << "    "

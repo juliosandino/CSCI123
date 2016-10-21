@@ -1,0 +1,15 @@
+/Users/julio395/Library/Caches/CLion2016.2/cmake/generated/H7-b2019889/b2019889/Debug/H7
+Enter up to 20 non-negative whole numbers.
+Mark the end of the list with a negative number.
+10 30 40 50 10 2 5 19 3 2 5 1 -10
+Smallest number in array is : 1
+Enter a number to search for: 50
+50 is stored in array position 3
+(Remember: The first position is 0.)
+Search again?(y/n followed by Return): y
+Enter a number to search for: 9
+9 is not on the list.
+Search again?(y/n followed by Return): n
+End of program.
+
+Process finished with exit code 0

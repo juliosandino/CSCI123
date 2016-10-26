@@ -15,8 +15,8 @@ int main(){
     int uppercaseLetters;
     int lowercaseLetters;
 
-    inputFile.open ("/Users/julio395/ClionProjects/csci123/H6/cad.dat");
-    outputFile.open("/Users/julio395/ClionProjects/csci123/H6/outputs.dat");
+    inputFile.open("cad.dat");
+    outputFile.open("outputs.dat");
 
     //checks to see if the files exist
     if (inputFile.is_open() && outputFile.is_open()){

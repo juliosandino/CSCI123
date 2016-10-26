@@ -6,8 +6,9 @@
 //Program Description:
 
 #include <iostream>
-#include <fstream>
 #include <string>
+#include <fstream>
+
 using namespace std;
 
 struct SCourse
@@ -19,6 +20,9 @@ struct SCourse
 };
 
 const string fileName = "Courses.dat";
+ifstream inFile;
+ofstream outFile;
+bool fileIsOpen = true;
 
 int menu ();
 void listAllCourses ();
@@ -45,44 +49,46 @@ int main() {
 // Read course information from the file Courses.dat
 readCourseInfo();
 
-   int choice;
-   do {
-        system("clear");
+    if (fileIsOpen){
+        int choice;
+        do {
+            system("clear");
 
-        choice = menu();
+            choice = menu();
 
-        switch (choice) {
-        case 1:
-             listAllCourses ();
-             break;
-        case 2:
-             listCoursesOfSpecificDepartment ();
-             break;
-        case 3:
-             listCoursesWithLessSpecificUnit ();
-             break;
-        case 4:
-             listCoursesWithEqualSpecificUnit ();
-             break;
-        case 5:
-             listCoursesWithMoreSpecificUnit ();
-             break;
-        case 6:
-             listCoursesWithSpecificTitle();
-             break;
-        case 7:
-             listCourseInfoWithSpecificCrn();
-             break;
-        case 8:
-             Enroll ();
-             break;
-        case 9:
-             Quit();
-             break;
-        default:
-             cout<< "That was an invalid choice, please try again! \n";
-        }
-   } while (choice > 0 && choice < 9);
+            switch (choice) {
+            case 1:
+                 listAllCourses ();
+                 break;
+            case 2:
+                 listCoursesOfSpecificDepartment ();
+                 break;
+            case 3:
+                 listCoursesWithLessSpecificUnit ();
+                 break;
+            case 4:
+                 listCoursesWithEqualSpecificUnit ();
+                 break;
+            case 5:
+                 listCoursesWithMoreSpecificUnit ();
+                 break;
+            case 6:
+                 listCoursesWithSpecificTitle();
+                 break;
+            case 7:
+                 listCourseInfoWithSpecificCrn();
+                 break;
+            case 8:
+                 Enroll ();
+                 break;
+            case 9:
+                 Quit();
+                 break;
+            default:
+                 cout<< "That was an invalid choice, please try again! \n";
+            }
+       } while (choice > 0 && choice < 9);
+    }
 
     return 0;
 }
@@ -111,38 +117,39 @@ int menu () {
 }
 
 void readCourseInfo() {
-    fstream File;
 	string line;
     string::size_type sz;
 
     int counter = 0;
 
-	File.open(fileName);
+	inFile.open(fileName);
 
-    if (File.is_open()) {
-        while (getline(File, line)) {
+    if (inFile.is_open()) {
+        while (getline(inFile, line)) {
             courses[counter].CRN = stoi (line.substr(0, 5), &sz);
             courses[counter].Title = line.substr(9, 9);
             courses[counter].Units = stoi (line.substr(31, 32), &sz);
             courses[counter].NumberOfStudents = stoi (line.substr(line.length() -1), &sz);
             counter++;
         }
-    } else { cout << "INPUT FILE NOT FOUND!" << endl;}
+    } else {
+        cout << "INPUT FILE NOT FOUND!" << endl;
+        fileIsOpen = false;
+    }
 
-	File.close();
+	inFile.close();
 }
 
 void writeCourseInfo() {
-	fstream File;
-	File.open(fileName);
+	outFile.open(fileName);
 
 	for(int i = 0; i < COURSE_LIST_SIZE; i++) {
-		File	<< courses[i].CRN << "    "
+		outFile	<< courses[i].CRN << "    "
 			<< courses[i].Title << "              "
 			<< courses[i].Units << "             "
 			<< courses[i].NumberOfStudents << endl; 
 	}
-	File.close();
+	outFile.close();
 }
 
 

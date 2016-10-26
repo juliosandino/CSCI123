@@ -1,0 +1,2 @@
+Uppercase letters: 9
+Lowercase letters: 33

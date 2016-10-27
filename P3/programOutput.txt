@@ -1,0 +1,207 @@
+             COLLEGE ENROLLMENT SYSTEM
+
+1.  List All Courses.
+2.  List All Courses Of A Specific Department.
+3.  List All Courses With Number Of Units Less Than A Specific Number.
+4.  List All Courses With A Specific Number Of Units.
+5.  List All Courses With Number Of Units More Than A Specific Number.
+6.  List All Courses With A Specific Title.
+7.  List Course Information With CRN.
+8.  Enroll Into A Course.
+9.  Quit.
+
+Please select your option: 1
+11060	CHEM100F 	3	0
+11061	CHEM101F 	4	0
+11065	CHEM111F 	5	0
+11066	CHEM111F 	5	0
+10732	CSCI123F 	4	0
+10736	CSCI123F 	4	0
+10738	CSCI123F 	4	0
+10740	CSCI133F 	4	0
+10742	CSCI133F 	4	0
+10746	CSCI223F 	5	0
+10750	CSCI241F 	5	0
+14042	ENGL060F 	3	0
+14044	ENGL060F 	3	0
+10814	ENGL100F 	4	0
+10815	ENGL100F 	4	0
+10816	ENGL100F 	4	0
+11827	MATH020F 	3	0
+11828	MATH020F 	3	0
+11847	MATH040F 	4	0
+11848	MATH040F 	4	0
+11857	MATH120F 	4	0
+11858	MATH120F 	4	0
+11866	MATH150AF	5	0
+11867	MATH150AF	5	0
+11868	MATH150BF	5	0
+11877	MATH250AF	3	0
+11878	MATH250BF	3	0
+11000	HIST110F 	3	4
+11001	HIST111F 	3	0
+11002	HIST112F 	3	1
+             COLLEGE ENROLLMENT SYSTEM
+
+1.  List All Courses.
+2.  List All Courses Of A Specific Department.
+3.  List All Courses With Number Of Units Less Than A Specific Number.
+4.  List All Courses With A Specific Number Of Units.
+5.  List All Courses With Number Of Units More Than A Specific Number.
+6.  List All Courses With A Specific Title.
+7.  List Course Information With CRN.
+8.  Enroll Into A Course.
+9.  Quit.
+
+Please select your option: 2
+[1] MATHEMATICS
+[2] SCIENCE
+[3] ENGLISH
+[4] HISTORY
+[5] COMPUTER SCIENCE
+5
+10732	CSCI123F 	4	0
+10736	CSCI123F 	4	0
+10738	CSCI123F 	4	0
+10740	CSCI133F 	4	0
+10742	CSCI133F 	4	0
+10746	CSCI223F 	5	0
+10750	CSCI241F 	5	0
+             COLLEGE ENROLLMENT SYSTEM
+
+1.  List All Courses.
+2.  List All Courses Of A Specific Department.
+3.  List All Courses With Number Of Units Less Than A Specific Number.
+4.  List All Courses With A Specific Number Of Units.
+5.  List All Courses With Number Of Units More Than A Specific Number.
+6.  List All Courses With A Specific Title.
+7.  List Course Information With CRN.
+8.  Enroll Into A Course.
+9.  Quit.
+
+Please select your option: 4
+Please enter a number of Units: 5
+11065	CHEM111F 	5	0
+11066	CHEM111F 	5	0
+10746	CSCI223F 	5	0
+10750	CSCI241F 	5	0
+11866	MATH150AF	5	0
+11867	MATH150AF	5	0
+11868	MATH150BF	5	0
+             COLLEGE ENROLLMENT SYSTEM
+
+1.  List All Courses.
+2.  List All Courses Of A Specific Department.
+3.  List All Courses With Number Of Units Less Than A Specific Number.
+4.  List All Courses With A Specific Number Of Units.
+5.  List All Courses With Number Of Units More Than A Specific Number.
+6.  List All Courses With A Specific Title.
+7.  List Course Information With CRN.
+8.  Enroll Into A Course.
+9.  Quit.
+
+Please select your option: 5
+Please enter a number of Units: 3
+11061	CHEM101F 	4	0
+11065	CHEM111F 	5	0
+11066	CHEM111F 	5	0
+10732	CSCI123F 	4	0
+10736	CSCI123F 	4	0
+10738	CSCI123F 	4	0
+10740	CSCI133F 	4	0
+10742	CSCI133F 	4	0
+10746	CSCI223F 	5	0
+10750	CSCI241F 	5	0
+10814	ENGL100F 	4	0
+10815	ENGL100F 	4	0
+10816	ENGL100F 	4	0
+11847	MATH040F 	4	0
+11848	MATH040F 	4	0
+11857	MATH120F 	4	0
+11858	MATH120F 	4	0
+11866	MATH150AF	5	0
+11867	MATH150AF	5	0
+11868	MATH150BF	5	0
+             COLLEGE ENROLLMENT SYSTEM
+
+1.  List All Courses.
+2.  List All Courses Of A Specific Department.
+3.  List All Courses With Number Of Units Less Than A Specific Number.
+4.  List All Courses With A Specific Number Of Units.
+5.  List All Courses With Number Of Units More Than A Specific Number.
+6.  List All Courses With A Specific Title.
+7.  List Course Information With CRN.
+8.  Enroll Into A Course.
+9.  Quit.
+
+Please select your option: 6
+Please Type the name of the class: CHEM
+11060	CHEM100F 	3	0
+11061	CHEM101F 	4	0
+11065	CHEM111F 	5	0
+11066	CHEM111F 	5	0
+             COLLEGE ENROLLMENT SYSTEM
+
+1.  List All Courses.
+2.  List All Courses Of A Specific Department.
+3.  List All Courses With Number Of Units Less Than A Specific Number.
+4.  List All Courses With A Specific Number Of Units.
+5.  List All Courses With Number Of Units More Than A Specific Number.
+6.  List All Courses With A Specific Title.
+7.  List Course Information With CRN.
+8.  Enroll Into A Course.
+9.  Quit.
+
+Please select your option: 7
+Please enter the CRN: 11006
+No class had a CRN of 11006
+             COLLEGE ENROLLMENT SYSTEM
+
+1.  List All Courses.
+2.  List All Courses Of A Specific Department.
+3.  List All Courses With Number Of Units Less Than A Specific Number.
+4.  List All Courses With A Specific Number Of Units.
+5.  List All Courses With Number Of Units More Than A Specific Number.
+6.  List All Courses With A Specific Title.
+7.  List Course Information With CRN.
+8.  Enroll Into A Course.
+9.  Quit.
+
+Please select your option: 8
+Please enter the CRN of the class: 11000
+
+11000	HIST110F 	3	4
+do you wish to enroll in this class? (y/n)Y
+action cancelled!
+             COLLEGE ENROLLMENT SYSTEM
+
+1.  List All Courses.
+2.  List All Courses Of A Specific Department.
+3.  List All Courses With Number Of Units Less Than A Specific Number.
+4.  List All Courses With A Specific Number Of Units.
+5.  List All Courses With Number Of Units More Than A Specific Number.
+6.  List All Courses With A Specific Title.
+7.  List Course Information With CRN.
+8.  Enroll Into A Course.
+9.  Quit.
+
+Please select your option: 8
+Please enter the CRN of the class: 11000
+
+11000	HIST110F 	3	4
+do you wish to enroll in this class? (y/n)y
+You've succesfully enrolled!
+             COLLEGE ENROLLMENT SYSTEM
+
+1.  List All Courses.
+2.  List All Courses Of A Specific Department.
+3.  List All Courses With Number Of Units Less Than A Specific Number.
+4.  List All Courses With A Specific Number Of Units.
+5.  List All Courses With Number Of Units More Than A Specific Number.
+6.  List All Courses With A Specific Title.
+7.  List Course Information With CRN.
+8.  Enroll Into A Course.
+9.  Quit.
+
+Please select your option: 9
+Have a nice day

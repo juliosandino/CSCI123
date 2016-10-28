@@ -1,7 +1,7 @@
 //P3.cpp
 //Programmer: Julio Sandino                                             CSCI 123, Fall 2016
 //Project 3                                                             Instructor: Mai, Timothy
-//Due Date: 9/29/16                                                     Date Submitted: 9/29/16
+//Due Date: 10/27/16                                                    Date Submitted: 10/27/16
 
 //Program Description:
 
@@ -52,7 +52,7 @@ readCourseInfo();
     if (fileIsOpen){
         int choice;
         do {
-            system("clear");
+            system("CLS");
 
             choice = menu();
 
@@ -87,6 +87,7 @@ readCourseInfo();
             default:
                  cout<< "That was an invalid choice, please try again! \n";
             }
+			system("PAUSE");
        } while (choice > 0 && choice < 9);
     }
 

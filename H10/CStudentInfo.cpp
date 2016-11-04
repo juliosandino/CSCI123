@@ -15,13 +15,30 @@ CStudentInfo::CStudentInfo() {
     Term = UNKNOWN;
 }
 
-CStudentInfo::CStudentInfo(string ID, string fName, char mInitial, string Lname, int U, YearTerm term) {
+CStudentInfo::CStudentInfo(string ID, string fName, char mInitial, string Lname, int U, int term) {
     this->ID = ID;
     FirstName = fName;
     MiddleInitial = mInitial;
     LastName = Lname;
     Units = U;
-    Term = term;
+
+    switch (term) {
+        case 1:
+            Term = FRESHMAN;
+            break;
+        case 2:
+            Term = SOPHOMORE;
+            break;
+        case 3:
+            Term = JUNIOR;
+            break;
+        case 4:
+            Term = SENIOR;
+            break;
+        default:
+            Term = UNKNOWN;
+            break;
+    }
 }
 
 CStudentInfo::CStudentInfo(const CStudentInfo &Student) {
@@ -38,9 +55,9 @@ CStudentInfo::~CStudentInfo() {}
 void CStudentInfo::getInfo() {
     cout << "Student ID > ";
     cin >> ID;
-    cout << "Student First Name >";
+    cout << "Student First Name > ";
     cin >> FirstName;
-    cout << "Student Middle Initial >";
+    cout << "Student Middle Initial > ";
     cin >> MiddleInitial;
     cout << "Student Last Name > ";
     cin >> LastName;
@@ -77,11 +94,27 @@ void CStudentInfo::showInfo() {
             << "Term: " << getTerm() << endl;
 }
 
-YearTerm CStudentInfo::getTerm() {
+CStudentInfo::YearTerm CStudentInfo::getTerm() {
     return Term;
 }
 
-void CStudentInfo::setTerm(YearTerm term) {
-    Term = term;
+void CStudentInfo::setTerm(int term) {
+    switch (term) {
+        case 1:
+            Term = FRESHMAN;
+            break;
+        case 2:
+            Term = SOPHOMORE;
+            break;
+        case 3:
+            Term = JUNIOR;
+            break;
+        case 4:
+            Term = SENIOR;
+            break;
+        default:
+            Term = UNKNOWN;
+            break;
+    }
 }
 

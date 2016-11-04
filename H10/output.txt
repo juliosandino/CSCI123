@@ -1,0 +1,82 @@
+/Users/julio395/Library/Caches/CLion2016.2/cmake/generated/H10-8e31780d/8e31780d/Debug/H10
+The default information of the first Course:
+CRN: Z000
+Title: None
+Units: 0
+Number of Students: 0
+
+CRN of the class > XY10
+Title of class > CSCI123
+Number of units > 4
+Number of students in class > 9
+
+The inputted information of the first Course:
+CRN: XY10
+Title: CSCI123
+Units: 4
+Number of Students: 9
+
+Modifying the number of students to 6.
+The number of students now is: 6
+
+The initial information of the second Course:
+CRN: 11060
+Title: CHEM100F
+Units: 3
+Number of Students: 2
+
+Modifying the number of students to 4.
+The modified number of students: 4
+
+The updated information of the second Course:
+CRN: 11060
+Title: CHEM100F
+Units: 3
+Number of Students: 4
+
+The default information of the first Course:
+ID: Z9999
+First Name: None
+Middle Initial: ?
+Last Name: None
+Units Enrolled: 0
+Term: 0
+
+Student ID > Z0112
+Student First Name >Julio
+Student Middle Initial >E
+Student Last Name > Sandino
+Number of Units enrolled > 16
+Year Term of the student(as int) > 1
+
+The inputted information of the first Course:
+ID: Z0112
+First Name: Julio
+Middle Initial: E
+Last Name: Sandino
+Units Enrolled: 16
+Term: 1
+
+Modifying Term of the student to be Sophomore.
+The term of the student now is: 2
+
+The initial information of the second student:
+ID: Z270
+First Name: Julio
+Middle Initial: E
+Last Name: Sandino
+Units Enrolled: 15
+Term: 1
+
+Modifying the term to Senior.
+The term of the student now is: 4
+
+The updated information of the second Course:
+ID: Z270
+First Name: Julio
+Middle Initial: E
+Last Name: Sandino
+Units Enrolled: 15
+Term: 4
+
+Process finished with exit code 0

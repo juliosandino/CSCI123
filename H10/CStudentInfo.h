@@ -21,7 +21,7 @@ public:
     int Units;
 
     CStudentInfo();
-    CStudentInfo(string ID, string fName, char mInitial, string Lname, int U, YearTerm term);
+    CStudentInfo(string ID, string fName, char mInitial, string Lname, int U, int term);
     CStudentInfo(const CStudentInfo& Student);
     ~CStudentInfo();
 
@@ -29,7 +29,7 @@ public:
     void showInfo();
 
     YearTerm getTerm();
-    void setTerm(YearTerm term);
+    void setTerm(int term);
 private:
     YearTerm Term;
 };

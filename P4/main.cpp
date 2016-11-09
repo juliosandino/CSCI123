@@ -274,7 +274,7 @@ void listCoursesWithSpecificTitle ()
     cin >> title;
 
     for (int i = 0; i < COURSE_LIST_SIZE; i++) {
-        if (courses[i].Title.compare(title) == 1) {
+        if (courses[i].Title.compare(title) == 0) {
             cout << courses[i];
             numberPrinted++;
         }

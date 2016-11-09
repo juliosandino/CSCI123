@@ -426,7 +426,7 @@ void Enroll ()
             }
         }
 
-        if (student.units + course.units > 15){
+        if (student.units + course.units > 12){
             cout << "Error! You would be enrolling in more units than allowed." << endl;
         } else {
             char answer;

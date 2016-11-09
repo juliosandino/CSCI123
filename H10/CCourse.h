@@ -19,8 +19,12 @@ public:
     CCourse(const CCourse& CCourse);
     ~CCourse();
 
+    friend istream&operator >> (istream& ins, CCourse& course);
+    friend ostream&operator << (ostream& outs, CCourse& course);
+
     void getInfo();
     void showInfo();
+
     int getNumberOfStudents();
     void setNumberOfStudents(int students);
 

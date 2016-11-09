@@ -25,8 +25,12 @@ public:
     CStudentInfo(const CStudentInfo& Student);
     ~CStudentInfo();
 
+    friend istream&operator >> (istream& ins, CStudentInfo& student);
+    friend ostream&operator << (ostream& outs, CStudentInfo& student);
+
     void getInfo();
     void showInfo();
+    string termToString();
 
     YearTerm getTerm();
     void setTerm(int term);

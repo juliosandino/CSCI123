@@ -49,6 +49,21 @@ void CCourse::getInfo() {
     setNumberOfStudents(students);
 }
 
+ostream&operator << (ostream& outs, CCourse& course){
+    outs << "CRN: " << course.CRN << "  " << "Title: " << course.Title << endl;
+    outs << "Units: " << course.Units << "  " << "Students Enrolled: " << course.getNumberOfStudents() << endl;
+
+    return outs;
+}
+
+istream&operator >> (istream& ins, CCourse& course){
+    int temp;
+    ins >> course.CRN >> course.Title >> course.Units >> temp;
+    course.setNumberOfStudents(temp);
+
+    return ins;
+}
+
 int CCourse::getNumberOfStudents() {
     return NumberOfStudents;
 }

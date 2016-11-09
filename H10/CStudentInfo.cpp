@@ -91,7 +91,7 @@ void CStudentInfo::showInfo() {
             << "Middle Initial: " << MiddleInitial << endl
             << "Last Name: " << LastName << endl
             << "Units Enrolled: " << Units << endl
-            << "Term: " << getTerm() << endl;
+            << "Term: " << termToString() << endl;
 }
 
 CStudentInfo::YearTerm CStudentInfo::getTerm() {
@@ -118,3 +118,32 @@ void CStudentInfo::setTerm(int term) {
     }
 }
 
+string CStudentInfo::termToString() {
+    switch (Term) {
+        case FRESHMAN:
+            return "Freshman";
+        case SOPHOMORE:
+            return "Sophomore";
+        case JUNIOR:
+            return "Junior";
+        case SENIOR:
+            return "Senior";
+        default:
+            return "Unknown";
+    }
+}
+
+ostream& operator <<(ostream& outs, CStudentInfo& student) {
+    outs << "Name: " << student.FirstName << " " << student.MiddleInitial << ". " << student.LastName << endl;
+    outs << "Units: " << student.Units << "  " << "Term: " << student.termToString() << endl;
+
+    return outs;
+}
+
+istream& operator >>(istream& ins, CStudentInfo& student) {
+    int temp;
+    ins >> student.FirstName >> student.MiddleInitial >> student.LastName >> student.Units >> temp;
+    student.setTerm(temp);
+
+    return ins;
+}

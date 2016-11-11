@@ -32,32 +32,32 @@ int main() {
     cout << secondCourse;
     cout << "\n";
 
-//    //Your code HERE to test the class CStudentInfo
-//
-//    CStudentInfo firstStudent;
-//    cout<< "The default information of the first Course: \n";
-//    cout << firstStudent;
-//    cout << "\n";
-//    cout << "(First Name, Middle initial, Last Name, Units, Term(as int)" << endl
-//         << "Please enter the information for the student: ";
-//    cin >> firstStudent;
-//    cout << "\n";
-//    cout<< "The inputted information of the first student: \n";
-//    cout << firstStudent;
-//    cout << "\n";
-//    cout<< "Modifying Term of the student to be Sophomore. \n";
-//    firstStudent.setTerm(2);
-//    cout<< "The term of the student now is: " << firstStudent.termToString() << endl;
-//    cout << "\n";
-//
-//    CStudentInfo secondStudent ("Z270", "Julio", 'E', "Sandino", 15, 1);
-//    cout<< "The initial information of the second student: \n";
-//    cout << secondStudent;
-//    cout << "\n";
-//    cout<< "Modifying the term to Senior. \n";
-//    secondStudent.setTerm(4);
-//    cout<< "The term of the student now is: " << secondStudent.termToString() << endl;
-//    cout <<"\n";
-//    cout<< "The updated information of the second Course: \n";
-//    cout << secondStudent;
+    //Your code HERE to test the class CStudentInfo
+
+    CStudentInfo firstStudent;
+    cout<< "The default information of the first Course: \n";
+    cout << firstStudent;
+    cout << "\n";
+    cout << "(First Name, Middle initial, Last Name, Units, Term(as int)" << endl
+         << "Please enter the information for the student: ";
+    cin >> firstStudent;
+    cout << "\n";
+    cout<< "The inputted information of the first student: \n";
+    cout << firstStudent;
+    cout << "\n";
+    cout<< "Modifying Term of the student to be Sophomore. \n";
+    firstStudent.setTerm(2);
+    cout<< "The term of the student now is: " << firstStudent.termToString() << endl;
+    cout << "\n";
+
+    CStudentInfo secondStudent ("Z270", "Julio", 'E', "Sandino", 15, 1);
+    cout<< "The initial information of the second student: \n";
+    cout << secondStudent;
+    cout << "\n";
+    cout<< "Modifying the term to Senior. \n";
+    secondStudent.setTerm(4);
+    cout<< "The term of the student now is: " << secondStudent.termToString() << endl;
+    cout <<"\n";
+    cout<< "The updated information of the second Course: \n";
+    cout << secondStudent;
 }

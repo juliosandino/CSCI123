@@ -13,6 +13,7 @@
 #include <fstream>
 #include "CStudentInfo.h"
 #include "CCourse.h"
+#include <string>
 using namespace std;
 
 const int COURSE_LIST_SIZE = 30;
@@ -21,8 +22,8 @@ CCourse courses[COURSE_LIST_SIZE];
 bool courseSucceed = false;
 bool studentSucceed = false;
 
-string courseFilePath = "Courses.dat";
-string studentFilePath = "Students.dat";
+const string courseFilePath = "Courses.dat";
+const string studentFilePath = "Students.dat";
 
 int menu ();
 void listAllCourses ();
@@ -64,7 +65,7 @@ int main()
     if (courseSucceed && studentSucceed) {
         int choice;
         do {
-            system("CLS");
+            //system("clear");
             choice = menu();
 
             switch (choice) {
@@ -110,8 +111,8 @@ int main()
                 default:
                     cout << "That was an invalid choice, please try again! \n";
             }
-            system("PAUSE");
-        } while (choice > 0 && choice < 13);
+			cin.get();
+		} while (choice > 0 && choice < 13);
     } else {
         cout << "File not found!";
     }
@@ -458,7 +459,7 @@ void readStudentInfo() {
     ifstream studentFile;
 
     //fix the path at the end man
-    studentFile.open(studentFilePath);
+    studentFile.open("Students.dat");
 
     if (studentFile.fail()) {
         cout << "File not found!";
@@ -476,7 +477,7 @@ void readCourseInfo() {
     ifstream courseFile;
 
     //fix the path at the end man
-    courseFile.open(courseFilePath);
+    courseFile.open("Courses.dat");
 
     if (courseFile.fail()) {
         cout << "File not found!";
@@ -493,7 +494,7 @@ void readCourseInfo() {
 void writeStudentInfo() {
     ofstream studentFile;
 
-    studentFile.open(studentFilePath);
+    studentFile.open("Students.dat");
 
     if (studentFile.fail()) {
         cout << "Error Student file not found!" << endl;
@@ -510,7 +511,7 @@ void writeStudentInfo() {
 void writeCourseInfo() {
     ofstream coursesFile;
 
-    coursesFile.open(courseFilePath);
+    coursesFile.open("Students.dat");
 
     if (coursesFile.fail()) {
         cout << "Error Course file not found!" << endl;

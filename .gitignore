@@ -5,3 +5,4 @@ CMakeLists.txt
 *.png
 FETCH_HEAD
 *.swp
+.*.swp

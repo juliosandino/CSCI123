@@ -15,6 +15,9 @@ CStudentInfo::CStudentInfo(){
     lastName = "None";
     units = 0;
     Term = UNKNOWN;
+	for (int i = 0; i < 5; i++) {
+		classes[i] = "N/A";
+	}
 }
 
 //parameterized constructor
@@ -42,6 +45,10 @@ CStudentInfo::CStudentInfo(string ID, string firstName, char middleInitial, stri
         default:
             Term = UNKNOWN;
     }
+
+	for (int i = 0; i < 5; i++) {
+		classes[i] = "N/A";
+	}	
 }
 
 //copy constructor
@@ -105,6 +112,10 @@ istream&operator >> (istream &ins, CStudentInfo &student) {
     string tempString;
     ins >> student.ID >> student.firstName >> student.middleInitial >> student.lastName >> student.units >> tempString;
 
+	for (int i = 0; i < 5; i++){
+		ins >> student.classes[i];
+	}
+
     if (tempString == "Freshman") {
         student.setTerm(1);
     } else if (tempString == "Sophomore") {
@@ -121,8 +132,12 @@ istream&operator >> (istream &ins, CStudentInfo &student) {
 }
 
 ostream&operator << (ostream &outs, CStudentInfo &student) {
-    outs << "ID: " << student.ID << "  Name: " << student.firstName << " " << student.middleInitial << ". " << student.lastName << "\n";
-    outs << "Units: " << student.units << "  Term: " << student.termToString() << "\n";
+    outs << student.ID << "\t" << student.firstName << "\t" << student.middleInitial << "\t" << student.lastName << "\t\t";
+    outs << student.units << "\t" << student.termToString() << "\t\t";
+	
+	for (int i = 0; i < 5; i++) {
+		outs << student.classes[i] << "\t";
+	}
 
     return outs;
 }

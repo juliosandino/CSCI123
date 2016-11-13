@@ -20,6 +20,7 @@ public:
     char middleInitial;
     string lastName;
     int units;
+	string classes[5];
 
     //Constructors
     CStudentInfo();

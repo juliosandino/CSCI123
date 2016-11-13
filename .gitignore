@@ -4,4 +4,4 @@ CMakeLists.txt
 *.swf
 *.png
 FETCH_HEAD
-*.*.swf
+*.swp

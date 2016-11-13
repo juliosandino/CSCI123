@@ -15,7 +15,7 @@ CStudentInfo::CStudentInfo(){
     lastName = "None";
     units = 0;
     Term = UNKNOWN;
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < NUMBER_OF_COURSES; i++) {
 		classes[i] = "N/A";
 	}
 }
@@ -46,7 +46,7 @@ CStudentInfo::CStudentInfo(string ID, string firstName, char middleInitial, stri
             Term = UNKNOWN;
     }
 
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < NUMBER_OF_COURSES; i++) {
 		classes[i] = "N/A";
 	}	
 }
@@ -112,7 +112,7 @@ istream&operator >> (istream &ins, CStudentInfo &student) {
     string tempString;
     ins >> student.ID >> student.firstName >> student.middleInitial >> student.lastName >> student.units >> tempString;
 
-	for (int i = 0; i < 5; i++){
+	for (int i = 0; i < NUMBER_OF_COURSES; i++){
 		ins >> student.classes[i];
 	}
 
@@ -140,7 +140,7 @@ ostream&operator << (ostream &outs, CStudentInfo &student) {
 		student.getTerm() == UNKNOWN)
 			outs << "\t";
 
-	for (int i = 0; i < 5; i++){
+	for (int i = 0; i < NUMBER_OF_COURSES; i++){
 		outs << student.classes[i] << "\t";
 	}
 

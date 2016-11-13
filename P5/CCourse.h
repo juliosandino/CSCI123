@@ -9,13 +9,16 @@
 #include <string>
 using namespace std;
 
+
+const int NUMBER_OF_STUDENTS = 5;
+
 class CCourse {
 public:
     //data members
     string CRN;
     string Title;
     int units;
-	string students[5];
+	string students[NUMBER_OF_STUDENTS];
 
     //constructors
     CCourse();

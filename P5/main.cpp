@@ -132,7 +132,7 @@ int menu ()
     cout<< "5.  List All Courses With Number Of Units More Than A Specific Number. \n";
     cout<< "6.  List All Courses With A Specific Title. \n";
     cout<< "7.  List Course Information With CRN. \n";
-    cout<< "STUDENT_LIST_SIZE.  List All Students.\n";
+    cout<< "8.  List All Students.\n";
     cout<< "9.  List All Students With A Specific Year Term. \n";
     cout<< "10. List All Students With A Specific Last Name. \n";
     cout<< "11. List Student Information With ID. \n";

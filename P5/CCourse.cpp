@@ -53,6 +53,11 @@ void CCourse::setNumberOfStudents(int num) {
     NumberOfStudents = num;
 }
 
+//checks if the course exists
+bool CCourse::exists(){
+	return CRN != "Z000";
+}
+
 //operator overload functions
 
 ostream&operator << (ostream& outs, CCourse& course) {

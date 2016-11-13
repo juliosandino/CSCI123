@@ -152,7 +152,9 @@ int menu ()
 void listAllCourses ()
 {
     for (int i = 0; i < COURSE_LIST_SIZE; i++) {
-        cout << courses[i];
+		if (courses[i].exists()){
+			cout << courses[i];
+		}
     }
 }
 void listCoursesOfSpecificDepartment ()
@@ -309,7 +311,9 @@ void listCourseInfoWithSpecificCrn ()
 void listAllStudents ()
 {
     for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
-        cout << students[i] << endl;
+		if (students[i].exists()){
+			cout << students[i] << endl;
+		}
     }
 }
 
@@ -502,7 +506,9 @@ void writeStudentInfo() {
         cout << "Error Student file not found!" << endl;
     } else {
         for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
-			studentFile << students[i] << "\n";
+			if (students[i].exists() {
+				studentFile << students[i] << "\n";
+			}
         }
     }
 
@@ -518,7 +524,9 @@ void writeCourseInfo() {
         cout << "Error Course file not found!" << endl;
     } else {
         for (int i = 0; i < COURSE_LIST_SIZE; i++) {
-            coursesFile << courses[i];
+			if (courses[i].exists()) {
+				coursesFile << courses[i];
+			}
         }
     }
 

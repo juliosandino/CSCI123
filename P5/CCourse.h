@@ -29,6 +29,7 @@ public:
     //accesor and mutator
     void setNumberOfStudents(int num);
     int getNumberOfStudents();
+	bool exists();
 
     //operator overloading functions
     friend istream&operator >> (istream& ins, CCourse& course);

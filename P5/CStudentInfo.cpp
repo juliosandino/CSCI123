@@ -107,6 +107,12 @@ string CStudentInfo::termToString() {
     }
 }
 
+//checks if the class actually exists
+bool CStudentInfo::exists() {
+	return ID != "Z9999"; 
+}
+
+
 //operator overloading
 istream&operator >> (istream &ins, CStudentInfo &student) {
     string tempString;

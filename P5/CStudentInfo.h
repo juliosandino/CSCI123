@@ -35,6 +35,7 @@ public:
 
     void setTerm(int term);
     YearTerm getTerm();
+	bool exists();
 
     string termToString();
 

@@ -14,6 +14,10 @@ CCourse::CCourse() {
     Title = "None";
     units = 0;
     NumberOfStudents = 0;
+
+	for (int i = 0; i < 5; i++) {
+		students[i] == "N/A";
+	}
 }
 
 //parameter constructor
@@ -22,6 +26,10 @@ CCourse::CCourse(string CRN, string Title, int Units, int NumberOfStudents) {
     this->Title = Title;
     this->units = Units;
     this->NumberOfStudents = NumberOfStudents;
+
+	for (int i = 0; i < 5; i++) {
+		students[i] = "N/A";
+	}
 }
 
 //copy constructor
@@ -48,7 +56,13 @@ void CCourse::setNumberOfStudents(int num) {
 //operator overload functions
 
 ostream&operator << (ostream& outs, CCourse& course) {
-    outs << course.CRN << "\t\t" << course.Title << "\t\t" << course.units << "\t\t" << course.getNumberOfStudents() << "\n";
+    outs << course.CRN << "\t\t" << course.Title << "\t\t" << course.units << "\t\t" << course.getNumberOfStudents() << "\t";
+
+	for (int i = 0; i < 5; i++) {
+		outs << course.students[i] << "\t";
+	}
+
+	outs << "\n";
 
     return outs;
 }
@@ -57,6 +71,10 @@ istream&operator >> (istream& ins, CCourse& course){
     int temp;
     ins >> course.CRN >> course.Title >> course.units >> temp;
     course.setNumberOfStudents(temp);
+	
+	for (int i = 0; i < 5; i++){
+		ins >> course.students[i];
+	}
 
     return ins;
 }

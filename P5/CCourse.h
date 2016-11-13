@@ -15,6 +15,7 @@ public:
     string CRN;
     string Title;
     int units;
+	string students[5];
 
     //constructors
     CCourse();

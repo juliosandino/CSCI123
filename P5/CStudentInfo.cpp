@@ -132,10 +132,15 @@ istream&operator >> (istream &ins, CStudentInfo &student) {
 }
 
 ostream&operator << (ostream &outs, CStudentInfo &student) {
-    outs << student.ID << "\t" << student.firstName << "\t" << student.middleInitial << "\t" << student.lastName << "\t\t";
-    outs << student.units << "\t" << student.termToString() << "\t\t";
+	outs << student.ID << "\t" << student.firstName << "\t";
+	outs << student.middleInitial << "\t" << student.lastName << "\t\t";
+    outs << student.units << "\t" << student.termToString() << "\t";
 	
-	for (int i = 0; i < 5; i++) {
+	if (student.getTerm() == JUNIOR || student.getTerm() == SENIOR ||
+		student.getTerm() == UNKNOWN)
+			outs << "\t";
+
+	for (int i = 0; i < 5; i++){
 		outs << student.classes[i] << "\t";
 	}
 

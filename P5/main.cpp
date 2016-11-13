@@ -1,7 +1,7 @@
 //main.cpp
 //Programmer: Julio Sandino                                             CSCI 123, Fall 2016
 //Project 4                                                             Instructor: Mai, Timothy
-//Due Date: 11/08/16                                                    Date Submitted: 11/08/16
+//Due Date: 11/0STUDENT_LIST_SIZE/16                                                    Date Submitted: 11/0STUDENT_LIST_SIZE/16
 
 //Program Description:
 //This program will be able to log student info and course info in a college enrollment system
@@ -16,8 +16,9 @@
 #include <string>
 using namespace std;
 
-const int COURSE_LIST_SIZE = 30;
-CStudentInfo students[10];
+const int COURSE_LIST_SIZE = 40;
+const int STUDENT_LIST_SIZE = 10;
+CStudentInfo students[STUDENT_LIST_SIZE];
 CCourse courses[COURSE_LIST_SIZE];
 bool courseSucceed = false;
 bool studentSucceed = false;
@@ -131,7 +132,7 @@ int menu ()
     cout<< "5.  List All Courses With Number Of Units More Than A Specific Number. \n";
     cout<< "6.  List All Courses With A Specific Title. \n";
     cout<< "7.  List Course Information With CRN. \n";
-    cout<< "8.  List All Students.\n";
+    cout<< "STUDENT_LIST_SIZE.  List All Students.\n";
     cout<< "9.  List All Students With A Specific Year Term. \n";
     cout<< "10. List All Students With A Specific Last Name. \n";
     cout<< "11. List Student Information With ID. \n";
@@ -307,7 +308,7 @@ void listCourseInfoWithSpecificCrn ()
 
 void listAllStudents ()
 {
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
         cout << students[i] << endl;
     }
 }
@@ -338,7 +339,7 @@ void listAllStudentInfoWithSpecificTerm ()
             temp = UNKNOWN;
     }
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
         if (students[i].getTerm() == temp) {
             cout << students[i] << endl;
             counter++;
@@ -358,7 +359,7 @@ void listAllStudentInfoWithSpecificLastName ()
 
     int counter = 0;
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
         if (students[i].lastName == temp){
             cout << students[i] << endl;
             counter++;
@@ -378,10 +379,11 @@ void listStudentInfoWithSpecificId ()
 
     int counter = 0;
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
         if (students[i].ID == temp){
             cout << students[i] << endl;
             counter++;
+			break;
         }
     }
 
@@ -401,7 +403,7 @@ void Enroll ()
 
     int counter = 0;
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
         if (students[i].ID == ID) {
             student = students[i];
             studentArrayPlace = i;
@@ -465,7 +467,7 @@ void readStudentInfo() {
         cout << "File not found!";
     } else {
         studentSucceed = true;
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
             studentFile >> students[i];
         }
     }
@@ -499,9 +501,8 @@ void writeStudentInfo() {
     if (studentFile.fail()) {
         cout << "Error Student file not found!" << endl;
     } else {
-        for (int i = 0; i < 8; i++) {
-            studentFile << students[i].ID << "\t" << students[i].firstName << "\t" << students[i].middleInitial << "\t" << students[i].lastName
-            << "\t\t" << students[i].units << "\t\t" << students[i].termToString() << endl;
+        for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
+			studentFile << students[i] << "\n";
         }
     }
 
@@ -511,7 +512,7 @@ void writeStudentInfo() {
 void writeCourseInfo() {
     ofstream coursesFile;
 
-    coursesFile.open("Students.dat");
+    coursesFile.open("Courses.dat");
 
     if (coursesFile.fail()) {
         cout << "Error Course file not found!" << endl;
@@ -525,7 +526,7 @@ void writeCourseInfo() {
 }
 
 int getEnrolledUnits(string studentId) {
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
         if (students[i].ID == studentId){
             return students[i].units;
         }
@@ -533,7 +534,7 @@ int getEnrolledUnits(string studentId) {
 }
 
 string searchId(string first, string last) {
-    for (int i = 0; i < 8; i++){
+    for (int i = 0; i < STUDENT_LIST_SIZE; i++){
         if (students[i].firstName == first && students[i].lastName == last){
             return students[i].ID;
         }

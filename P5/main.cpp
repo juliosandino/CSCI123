@@ -32,14 +32,17 @@ const string studentFilePath = "Students.dat";
 
 int menu ();
 void listAllDepartments();
+void addDepartment();
 void listAllCourses ();
+void addCourse();
+void CancelCourse();
 void listCoursesOfSpecificDepartment ();
 void listCoursesWithLessSpecificUnit ();
 void listCoursesWithEqualSpecificUnit ();
 void listCoursesWithMoreSpecificUnit ();
 void listCoursesWithSpecificTitle ();
 void listCourseInfoWithSpecificCrn ();
-void listAllStudents ();
+void listAllStudentsInCourse ();
 void listAllStudentInfoWithSpecificTerm ();
 void listAllStudentInfoWithSpecificLastName ();
 void listStudentInfoWithSpecificId ();
@@ -84,44 +87,56 @@ int main()
 
             switch (choice) {
                 case 1:
-                    listAllCourses(); listAllDepartments();
+                    listAllDepartments();
                     break;
                 case 2:
-                    listCoursesOfSpecificDepartment();
+					addDepartment();
                     break;
                 case 3:
-                    listCoursesWithLessSpecificUnit();
+					listAllCourses();
                     break;
                 case 4:
-                    listCoursesWithEqualSpecificUnit();
+					addCourse();
                     break;
                 case 5:
-                    listCoursesWithMoreSpecificUnit();
+					CancelCourse();
                     break;
                 case 6:
-                    listCoursesWithSpecificTitle();
+					listCoursesOfSpecificDepartment();
                     break;
                 case 7:
-                    listCourseInfoWithSpecificCrn();
+					listCoursesWithLessSpecificUnit();
                     break;
                 case 8:
-                    listAllStudents();
+                    listCoursesWithEqualSpecificUnit();
                     break;
-                case 9:
-                    listAllStudentInfoWithSpecificTerm();
-                    break;
+				case 9:
+					listCoursesWithMoreSpecificUnit();
+					break;
                 case 10:
-                    listAllStudentInfoWithSpecificLastName();
+                    listCourseInfoWithSpecificCrn();
                     break;
                 case 11:
-                    listStudentInfoWithSpecificId();
+                    listCoursesWithSpecificTitle();
                     break;
                 case 12:
-                    Enroll();
+                    listAllStudentsInCourse();
                     break;
                 case 13:
-                    Quit();
+                    listAllStudentInfoWithSpecificTerm();
                     break;
+                case 14:
+                    listAllStudentInfoWithSpecificLastName();
+                    break;
+				case 15:
+					listStudentInfoWithSpecificId();
+					break;
+				case 16:
+					Enroll();
+					break;
+				case 17:
+					Quit();
+					break;
                 default:
                     cout << "That was an invalid choice, please try again! \n";
             }

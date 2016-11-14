@@ -12,21 +12,26 @@
 #include <iostream>
 #include <fstream>
 #include "CStudentInfo.h"
+#include "CDepartment.h"
 #include "CCourse.h"
 #include <string>
 using namespace std;
 
 const int COURSE_LIST_SIZE = 40;
 const int STUDENT_LIST_SIZE = 10;
+const int DEPARTMENT_LIST_SIZE = 10;
 CStudentInfo students[STUDENT_LIST_SIZE];
 CCourse courses[COURSE_LIST_SIZE];
+CDepartment departments[DEPARTMENT_LIST_SIZE];
 bool courseSucceed = false;
 bool studentSucceed = false;
+bool departmentSucceed = false;
 
 const string courseFilePath = "Courses.dat";
 const string studentFilePath = "Students.dat";
 
 int menu ();
+void listAllDepartments();
 void listAllCourses ();
 void listCoursesOfSpecificDepartment ();
 void listCoursesWithLessSpecificUnit ();
@@ -54,6 +59,11 @@ void readCourseInfo();
 // Function to write course information back to the file Courses.dat
 void writeCourseInfo();
 
+//Function to read department info
+void readDepartmentInfo();
+//Function to write department info
+void writeDepartmentInfo();
+
 int main()
 {
 
@@ -63,7 +73,10 @@ int main()
 // Read course information from the file Courses.dat
     readCourseInfo();
 
-    if (courseSucceed && studentSucceed) {
+//Read department info
+	readDepartmentInfo();
+
+    if (courseSucceed && studentSucceed && departmentSucceed) {
         int choice;
         do {
             //system("clear");
@@ -71,7 +84,7 @@ int main()
 
             switch (choice) {
                 case 1:
-                    listAllCourses();
+                    listAllCourses(); listAllDepartments();
                     break;
                 case 2:
                     listCoursesOfSpecificDepartment();
@@ -157,6 +170,15 @@ void listAllCourses ()
 		}
     }
 }
+
+void listAllDepartments(){
+	for (int i = 0; i< DEPARTMENT_LIST_SIZE; i++) {
+		if (departments[i].exists()){
+			cout << departments[i] << endl;
+		}
+	}
+}
+
 void listCoursesOfSpecificDepartment ()
 {
     int choice;
@@ -457,8 +479,24 @@ void Quit()
     writeStudentInfo();
 // Write Course information back to the file Courses.dat
     writeCourseInfo();
-
+// Write Department information back to the file departments.dat
+	writeDepartmentInfo();
     cout<< "Have a nice day \n\n";
+}
+
+void readDepartmentInfo(){
+	ifstream departmentFile;
+
+	departmentFile.open("Departments.dat");
+
+	if (departmentFile.fail()){
+		cout << "Department File not found!" << endl;
+	} else {
+		departmentSucceed = true;
+		for (int i = 0; i < DEPARTMENT_LIST_SIZE; i++) {
+			departmentFile >> departments[i];
+		}
+	}
 }
 
 void readStudentInfo() {
@@ -506,7 +544,7 @@ void writeStudentInfo() {
         cout << "Error Student file not found!" << endl;
     } else {
         for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
-			if (students[i].exists() {
+			if (students[i].exists()) {
 				studentFile << students[i] << "\n";
 			}
         }
@@ -533,12 +571,32 @@ void writeCourseInfo() {
     coursesFile.close();
 }
 
+void writeDepartmentInfo(){
+	ofstream departmentFile;
+
+	departmentFile.open("Departments.dat");
+
+	if (departmentFile.fail()){
+		cout << "Error Department file not found!" << endl;
+	} else {
+		for (int i = 0; i < DEPARTMENT_LIST_SIZE; i++) {
+			if (departments[i].exists()) {
+				departmentFile << departments[i] << endl;
+			}
+		}
+	}
+
+	departmentFile.close();
+}
+
 int getEnrolledUnits(string studentId) {
     for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
         if (students[i].ID == studentId){
             return students[i].units;
         }
     }
+
+	return 999;
 }
 
 string searchId(string first, string last) {
@@ -547,4 +605,6 @@ string searchId(string first, string last) {
             return students[i].ID;
         }
     }
+
+	return "Not found!";
 }

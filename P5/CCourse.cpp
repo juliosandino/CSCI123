@@ -16,7 +16,7 @@ CCourse::CCourse() {
     NumberOfStudents = 0;
 
 	for (int i = 0; i < 5; i++) {
-		students[i] == "N/A";
+		students[i] = "N/A";
 	}
 }
 

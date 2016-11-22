@@ -11,7 +11,7 @@ using namespace std;
 
 //setpixel helped me out here. 10/10
 enum YearTerm {UNKNOWN = 0, FRESHMAN, SOPHOMORE, JUNIOR, SENIOR};
-const int NUMBER_OF_COURSES = 5;
+const int NUMBER_OF_COURSES = 4;
 
 class CStudentInfo {
 public:

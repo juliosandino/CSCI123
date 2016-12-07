@@ -35,6 +35,7 @@ public:
     void addCourse();
     bool doesCourseExist(string CRN);
     void cancelCourse();
+    void dropClass();
     void listCoursesOfSpecificDepartment ();
     void listCoursesWithLessSpecificUnit ();
     void listCoursesWithEqualSpecificUnit ();

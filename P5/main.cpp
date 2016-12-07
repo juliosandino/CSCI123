@@ -1,7 +1,7 @@
 //main.cpp
 //Programmer: Julio Sandino                                             CSCI 123, Fall 2016
-//Project 4                                                             Instructor: Mai, Timothy
-//Due Date: 11/0STUDENT_LIST_SIZE/16                                                    Date Submitted: 11/0STUDENT_LIST_SIZE/16
+//Project 5                                                             Instructor: Mai, Timothy
+//Due Date: 12/1/16                                    Date Submitted: 12/1/16
 
 //Program Description:
 //This program will be able to log student info and course info in a college enrollment system

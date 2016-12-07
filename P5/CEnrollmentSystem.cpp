@@ -96,13 +96,16 @@ void CEnrollmentSystem::EnrollSystem()
                     Enroll();
                     break;
                 case 17:
+                    dropClass();
+                    break;
+                case 18:
                     Quit();
                     break;
                 default:
                     cout << "That was an invalid choice, please try again! \n";
             }
             cin.get();
-        } while (choice > 0 && choice < 17);
+        } while (choice > 0 && choice < 18);
     } else {
         cout << "File not found!" << endl;
     }
@@ -129,11 +132,12 @@ int CEnrollmentSystem::menu ()
     cout<< "14. List information of all students with a specific last name \n";
     cout<< "15. List information of a specific student using his/her ID \n";
     cout<< "16. Enroll into a class \n";
-    cout<< "17. Quit \n\n";
+    cout<< "17. Drop a class\n";
+    cout<< "18. Quit \n\n";
 
     cout<< "Please select your option: ";
     cin>> option;
-    while (option < 1 || option > 17)
+    while (option < 1 || option > 18)
     {
         cout<< "Invalid option!!! Please select valid option: ";
         cin>> option;
@@ -177,6 +181,7 @@ void CEnrollmentSystem::listCoursesOfSpecificDepartment ()
         }
     }
 
+    cout << "Please chose a department: ";
     while(valid) {
         cin >> choice;
 
@@ -192,7 +197,7 @@ void CEnrollmentSystem::listCoursesOfSpecificDepartment ()
 
     for (int i = 0; i < COURSE_LIST_SIZE; i++){
         if (!courses[i].Title.find(department.ID)) {
-            cout << courses[i] << endl;
+            cout << courses[i];
             courseCounter++;
         }
     }
@@ -391,6 +396,8 @@ void CEnrollmentSystem::Enroll ()
 {
     bool coursesArrayFull = false;
     bool alreadyEnrolled = false;
+    bool classFilled = false;
+
     CStudentInfo* student;
     int choice;
     string ID;
@@ -453,6 +460,10 @@ void CEnrollmentSystem::Enroll ()
                 course = &courses[i];
                 courseArrayPlace = i;
                 courseFoundCounter++;
+
+                if (courses[i].getNumberOfStudents() == 5) {
+                    classFilled = true;
+                }
             }
         }
 
@@ -466,6 +477,8 @@ void CEnrollmentSystem::Enroll ()
             cout << "No class has a CRN of \"" << crn << "\"\n\n";
         } else if (alreadyEnrolled) {
             cout << "Error! You're already enrolled in that class!" << "\n\n";
+        } else if (classFilled) {
+            cout << "There are no free spaces in this class!" << "\n\n";
         }
         else if (student->units + course->units > 12){
             cout << "Error! You would be enrolling in more units than allowed." << endl;
@@ -713,6 +726,116 @@ void CEnrollmentSystem::addCourse() {
     } else {
         cout << "There is no open space for a new course!";
     }
+
+}
+
+void CEnrollmentSystem::dropClass() {
+    bool idIsValid = false;
+    int studentPlaceInArray;
+
+    string id;
+    int choice;
+    cout << "Would you like to use your CRN or Name for a class" << "\n\n";
+    cout << "[1] ID" << "\n" << "[2] Name" << "\n";
+
+    //chosing how to assing ID
+    do {
+        cin >> choice;
+        if (choice < 1 || choice > 2) {
+            cout << "Invalid choice please enter a number between 1 and 2" << "\n";
+        }
+    } while (choice < 1 || choice > 2);
+
+    //assigning ID
+    if (choice == 1) {
+        cout << "Please enter your ID: ";
+        cin >> id;
+    } else if (choice == 2) {
+        string first;
+        string last;
+        cout << "Please enter your name (first last): ";
+        cin >> first >> last;
+        id = searchId(first, last);
+    }
+
+    //ID validator
+    if (id == "Not found!") {
+        cout << "Error! No student with that name found!" << "\n\n";
+        return;
+    }
+
+    for (int i = 0; i < STUDENT_LIST_SIZE; i++) {
+        if (students[i].ID == id) {
+            idIsValid = true;
+            studentPlaceInArray = i;
+            break;
+        }
+    }
+
+    //Choosing class to drop
+    if (idIsValid) {
+        bool enrolled = false;
+
+        string crn;
+        int placeInClassesArray;
+        CStudentInfo student = studentByID(id);
+        cout << student << "\n\n";
+        cout << "Please enter the class you wish to drop: ";
+        cin >> crn;
+
+        //cheking to see if the class exist
+        if (doesCourseExist(crn)) {
+
+            for (int i = 0; i < NUMBER_OF_COURSES; i++) {
+                if (students[studentPlaceInArray].classes[i] == crn) {
+                    enrolled = true;
+                    placeInClassesArray = i;
+                }
+            }
+            //checking if actually enrolled
+            if (enrolled) {
+                int coursePlaceInArray;
+                for (int i = 0; i < COURSE_LIST_SIZE; i++) {
+                    if (courses[i].CRN == crn) {
+                        coursePlaceInArray = i;
+                    }
+                }
+                char choice;
+                cout << "Are you sure you wish to drop: " << courses[coursePlaceInArray] << "? (Y/N): ";
+                do {
+                    cin >> choice;
+
+                    if (toupper(choice) != 'Y' && toupper(choice) != 'N') {
+                        cout << "Error! Please enter valid answer (Y/N)" << "\n";
+                    }
+                } while (toupper(choice) != 'Y' && toupper(choice) != 'N');
+
+                if (toupper(choice) == 'Y') {
+                    students[studentPlaceInArray].units -= courses[coursePlaceInArray].units;
+                    students[studentPlaceInArray].classes[placeInClassesArray] = "N/A";
+
+                    courses[coursePlaceInArray].setNumberOfStudents(courses[coursePlaceInArray].getNumberOfStudents() -  1);
+                    for (int i = 0; i < NUMBER_OF_STUDENTS; i++) {
+                        if (courses[coursePlaceInArray].students[i] == students[studentPlaceInArray].ID)
+                            courses[coursePlaceInArray].students[i] = "N/A";
+                    }
+
+                    cout << "You've Succesfully dropped the class!" << "\n\n";
+                } else {
+                    cout << "Action cancelled! Class was not dropped" << "\n\n";
+                }
+            } else {
+                cout << "You are not enrolled in this class!" << "\n\n";
+            }
+        } else {
+            cout << "Course CRN does not exist!" << "\n\n";
+        }
+
+    } else {
+        cout << "ID not found!" << "\n\n";
+    }
+
+
 
 }
 

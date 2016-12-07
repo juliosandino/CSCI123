@@ -1,0 +1,26 @@
+Enter time in 24-hour format:
+Hour: 13
+Minute: 7
+That is 1:07 PM
+Again (y/n)? y
+Enter time in 24-hour format:
+Hour: 10
+Minute: 15
+That is 10:15 AM
+Again (y/n)? y
+Enter time in 24-hour format:
+Hour: 10
+Minute: 65
+There is no such time as 10:65
+Again (y/n)? y
+Enter time in 24-hour format:
+Hour: 32
+Minute: 30
+There is no such time as 32:30
+Again (y/n)? y
+Enter time in 24-hour format:
+Hour: 16
+Minute: 5
+That is 4:05 PM
+Again (y/n)? n
+Good-bye
